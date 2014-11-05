@@ -66,9 +66,9 @@ Ext.onReady(function(){
         new Ext.IframeWindow({
             id:'factsheetWindow',
             x: tbarDiv.getX() -5,
-            y: tbarDiv.getY() + tbarDiv.getHeight() - 31,
-            width: mainDiv.getWidth()+10,
-            height: mainDiv.getHeight() +tbarDiv.getHeight() - 49,//+disclaimerDiv.getHeight(),
+            y: tbarDiv.getY() + tbarDiv.getHeight() - 10,
+            width: mainDiv.getWidth() + 10,
+            height: mainDiv.getHeight() +tbarDiv.getHeight() + 170,//+disclaimerDiv.getHeight(),
             //title: "VME fact sheet <a style=\"position:absolute;right:60px;\" onclick=\"Ext.getCmp('factsheetWindow').close();\">&laquo;back to map&nbsp;</a>",
 			title: " <a style=\"position:absolute;right:60px;\" onclick=\"Ext.getCmp('factsheetWindow').close();\">&laquo;Back to map&nbsp;</a>",
             //src: addUrl ? "http://figisapps.fao.org/" + InfoSourcesLayerUrl : InfoSourcesLayerUrl,
