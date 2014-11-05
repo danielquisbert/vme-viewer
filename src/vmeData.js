@@ -265,14 +265,14 @@ Vme.data={
                         //'<em>End Date: </em><span>{validityPeriodTo}</span> <br/> '+                        
 						// '<em>UN Criteria: </em>{criteria}<br/> '+
 						//'<em>Vme ID:</em><span class="own"> {vme_id}</span><br/>'+
-						
-						'<div style="text-align:right;">' +
+                        '<br/>' +
+						'<div style="text-align:right;float:right;">' +
 							'<a  target="_blank" href="{[this.getDownloadLink(values)]}"><img title="Download as shapefile" src="theme/img/icons/download.png"></a>' +
 							//'{[this.getDownloadFDS(values)]}' +
 							'&nbsp;&nbsp;<a onClick="'+
 								'myMap.zoomToExtent(OpenLayers.Bounds.fromString( \'{[this.getBBOX(values)]}\'));'+
-                                'FigisMap.ol.refreshFilters(\'{owner_acronym}\');'+
-                                'setRFBCheckBoxValue(\'{owner_acronym}\');'+
+                                //'FigisMap.ol.refreshFilters(\'{owner_acronym}\');'+
+                               // 'setRFBCheckBoxValue(\'{owner_acronym}\');'+
                                 //'FigisMap.ol.clearPopupCache();'+
 								'FigisMap.ol.emulatePopupFromVert({[this.getVert(values.geometry)]})'+
 							'"><img title="Zoom to area" src="theme/img/icons/buttonzoom.png"></a>' +
@@ -280,10 +280,16 @@ Vme.data={
 
 							//'<br/>{[this.addProtectedLinks(values)]}' +
                         '</div>'+
+						'<div style="text-align:left;">' +
+							'<u><a href="javascript:void(0);" onClick="FigisMap.infoSourceLayers(\'{[this.getFactsheet(values)]}\',true);" >Access the Regional Factsheet</a></u>' +
+                        '</div>'+                        
                     '</div>'+
 				'</tpl>',
 				{
 					compiled:true,
+                    getFactsheet: function(values){
+                        return Vme.factsheetUrl[values.owner_acronym];
+                    },
                     checkUntilYear:function(values){
                         var untilValue = values.validityPeriodTo.split("-")
                         if(untilValue[0] === "9999"){
@@ -462,7 +468,7 @@ Vme.data={
 							//'{[this.getDownloadFDS(values)]}' +
 							'&nbsp;&nbsp;<a onClick="'+
 								'myMap.zoomToExtent(OpenLayers.Bounds.fromString( \'{[this.getBBOX(values)]}\'));'+
-                                'FigisMap.ol.refreshFilters(\'{owner_acronym}\');'+
+                                //'FigisMap.ol.refreshFilters(\'{owner_acronym}\');'+
                                 //'FigisMap.ol.clearPopupCache();'+
 								'FigisMap.ol.emulatePopupFromVert({[this.getVert(values.geometry)]})'+
 							'"><img title="Zoom to area" src="theme/img/icons/buttonzoom.png"></a>' +
@@ -480,22 +486,28 @@ Vme.data={
 						'<em>Geographical reference: </em><span class="geo_ref" >{feature_geo_ref}</span> <br/>'+
                         '<em>Surface: </em><span>{[this.toHectares(values)]}</span><em> (ha)</em> <br/> '+                         
 						//'<br/><br/>'+
-						
+						'<br/>' +
 						'<div>'+
-						'<div style="text-align:right;">' +
+						'<div style="text-align:right;float:right;">' +
 							'<a class="" target="_blank" href="{[this.getDownloadLink(values)]}"><img title="Download as shapefile" src="theme/img/icons/download.png"></a>' +
 							'<a class="" onClick="'+
 								'myMap.zoomToExtent(OpenLayers.Bounds.fromString( \'{[this.getBBOX(values)]}\'));'+
-                                'FigisMap.ol.refreshFilters(\'{owner}\');'+   
-                                'setRFBCheckBoxValue(\'{owner}\');'+
+                                //'FigisMap.ol.refreshFilters(\'{owner}\');'+   
+                                //'setRFBCheckBoxValue(\'{owner}\');'+
 								'FigisMap.ol.emulatePopupFromVert({[this.getVert(values.geometry)]})'+
 							'"><img title="Zoom to area" src="theme/img/icons/buttonzoom.png"></a>' +
 						'</div>'+
+						'<div style="text-align:left;">' +
+							'<u><a href="javascript:void(0);" onClick="FigisMap.infoSourceLayers(\'{[this.getFactsheet(values)]}\',true);" >Access the Regional Factsheet</a></u>' +
+                        '</div>'+                         
 						'</div>'+
 					'</div>'+
 				'</tpl>',                
 				{
 					compiled:true,
+                    getFactsheet: function(values){
+                        return Vme.factsheetUrl[values.owner_acronym];
+                    },                         
                     formatMeasure:function(values){
                         var pdf = values.pdfURL;
                         var measureArray = values.measure.split("__");
@@ -815,22 +827,28 @@ Vme.data={
 						'<em>Geographical reference: </em><span class="geo_ref" >{geo_ref}</span> <br/>'+
                         '<em>Surface: </em><span>{[this.toHectares(values)]}</span><em> (ha)</em> <br/> '+                         
 						//'<br/><br/>'+
-						
+                        '<br/>' +
 						'<div>'+
-						'<div style="text-align:right;">' +
+						'<div style="text-align:right;float:right;">' +
 							'<a class="" target="_blank" href="{[this.getDownloadLink(values)]}"><img title="Download as shapefile" src="theme/img/icons/download.png"></a>' +
 							'<a class="" onClick="'+
 								'myMap.zoomToExtent(OpenLayers.Bounds.fromString( \'{[this.getBBOX(values)]}\'));'+
-                                'FigisMap.ol.refreshFilters(\'{owner}\');'+   
-                                'setRFBCheckBoxValue(\'{owner}\');'+
+                                //'FigisMap.ol.refreshFilters(\'{owner}\');'+   
+                                //'setRFBCheckBoxValue(\'{owner}\');'+
 								'FigisMap.ol.emulatePopupFromVert({[this.getVert(values.geometry)]})'+
 							'"><img title="Zoom to area" src="theme/img/icons/buttonzoom.png"></a>' +
 						'</div>'+
+						'<div style="text-align:left;">' +
+							'<u><a href="javascript:void(0);" onClick="FigisMap.infoSourceLayers(\'{[this.getFactsheet(values)]}\',true);" >Access the Regional Factsheet</a></u>' +
+                        '</div>'+                         
 						'</div>'+
 					'</div>'+
 				'</tpl>',
 				{
-					compiled:true,                  
+					compiled:true,           
+                    getFactsheet: function(values){
+                        return Vme.factsheetUrl[values.owner];
+                    },                    
                     toHectares:function(values){
                         var hectares = values.surface/10000
                         return Math.round(hectares);
@@ -903,12 +921,12 @@ Vme.data={
 							//'"><img title="Zoom to area" src="theme/img/icons/buttonzoom.png"></a>' +
                             //'&nbsp;&nbsp;<a href="javascript:void(0);" onClick="FigisMap.factsheetRel(\'{[this.getFactsheetUrl(values)]}\');"><img title="View fact sheet" src="theme/img/icons/buttonfactsheet.png" /></a>' +                            
                             '&nbsp;&nbsp;<a href="javascript:void(0);" onClick="alert(\'{rfb}\');"><img title="View fact sheet" src="theme/img/icons/buttonfactsheet.png" /></a>' +                            
-						'</div>'+
+						'</div>'+                          
 						'</div>'+
 					'</div>'+
 				'</tpl>',
 				{
-					compiled:true,
+					compiled:true,               
 					getBBOX:function(values){
 						var projcode = "EPSG:4326";
 						if(myMap.getProjection() == projcode ){
@@ -1411,6 +1429,13 @@ Vme.data.stores = {
 		],
 		
 		proxy : new Ext.data.HttpProxy({
+            timeout: 36000,
+            success: function (result) {
+            },            
+            failure: function (result) {
+                var dataView = Vme.form.widgets.SearchResults;
+                dataView.refresh();
+            },            
             method: 'GET',
             url: Vme.data.models.searchUrl // see options parameter for Ext.Ajax.request
         }),
