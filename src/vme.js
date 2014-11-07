@@ -131,6 +131,9 @@ function reset(year){
 	
 	// Restore toggle
 	restoreToggleButtons();
+	
+	// Collapse the side panel
+	var sidePanel = Ext.getCmp("side-panel").collapse();
 }
 
 /**

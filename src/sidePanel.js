@@ -762,6 +762,7 @@ var sidePanel = new Ext.Panel({
 	height:460,	
 	activeItem: 0,
     layout:'card',
+	id: "side-panel",
 	deferredRender:false,
 	border:false,
 	defaults:{
