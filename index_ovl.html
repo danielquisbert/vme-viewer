@@ -61,68 +61,116 @@ document.namespaces;
 <!-- body onload="setVMEPage('e-link','rfbs-link', 'rfbs-html')" -->
 <body>
 
-<div id="page">
-	<div id="wrapper">
-    <!--
-		<div id="top">
+	<div id="page">
+		<div id="wrapper">
+		<!--
+			<div id="top">
 
-			<table width="100%" cellpadding="0" cellspacing="0" border="0">
-				<tr>
-					<td align="left">
-						<a href="http://www.fao.org" target="_blank"><img border=0 style="vertical-align: middle;" src="theme/img/FIGIS_banner-logo.gif" alt="FOOD AND AGRICULTURE ORGANIZATION OF THE UNITED NATIONS" title="Food and Agriculture Organization of the United Nations"/></a>
-					</td>
-					<td align="right">
-						<a href="http://www.fao.org/fishery" target="_blank"><img border=0 style="vertical-align: middle;" src="theme/img/FIGIS_banner-text.gif" alt="FAO Fisheries and Aquaculture Department" title="FAO Fisheries and Aquaculture Department"/></a>
-					</td>
-				</tr>
+				<table width="100%" cellpadding="0" cellspacing="0" border="0">
+					<tr>
+						<td align="left">
+							<a href="http://www.fao.org" target="_blank"><img border=0 style="vertical-align: middle;" src="theme/img/FIGIS_banner-logo.gif" alt="FOOD AND AGRICULTURE ORGANIZATION OF THE UNITED NATIONS" title="Food and Agriculture Organization of the United Nations"/></a>
+						</td>
+						<td align="right">
+							<a href="http://www.fao.org/fishery" target="_blank"><img border=0 style="vertical-align: middle;" src="theme/img/FIGIS_banner-text.gif" alt="FAO Fisheries and Aquaculture Department" title="FAO Fisheries and Aquaculture Department"/></a>
+						</td>
+					</tr>
 
-				<tr>
-					<td>
-						<h1 id="title">Vulnerable Marine Ecosystems Map Viewer</h1>
-					</td>
-				</tr>			
-			</table>
+					<tr>
+						<td>
+							<h1 id="title">Vulnerable Marine Ecosystems Map Viewer</h1>
+						</td>
+					</tr>			
+				</table>
+				
+			</div> -->
+			<!--div>
+				<div class="ribbon" style="position:absolute;right:0px;top:0px;z-index:5000">
+				   <img src="theme/img/beta-ribbon.png" alt="Beta"/>
+				</div> 
+			</div-->
+
+			<div  id="header">
+				<!--div id="logo"><a href="#" onClick="resetVME();"><img src="theme/img/logo.fw.png" width="377" height="172"  alt=""/></a></div>
+				<div id="subTitle" class="info"-->
+					<!--The Vulnerable Marine Ecosystem Database (VME-DB)<br />
+					gathers information on VME areas stored in harmonized<br />
+					way and disseminated through maps and fact sheets.-->
+					<!--Global inventory of fisheries measures adopted in ABNJ <br />
+					to prevent significant adverse impacts of high-seas <br />
+					bottom fisheries on vulnerable marine ecosystems (VMEs) and associated information
+				</div>-->
+			</div>
 			
-		</div> -->
-        <!--div>
-            <div class="ribbon" style="position:absolute;right:0px;top:0px;z-index:5000">
-               <img src="theme/img/beta-ribbon.png" alt="Beta"/>
-            </div> 
-        </div-->
-
-        <div  id="header">
-            <!--div id="logo"><a href="#" onClick="resetVME();"><img src="theme/img/logo.fw.png" width="377" height="172"  alt=""/></a></div>
-            <div id="subTitle" class="info"-->
-            	<!--The Vulnerable Marine Ecosystem Database (VME-DB)<br />
-            	gathers information on VME areas stored in harmonized<br />
-            	way and disseminated through maps and fact sheets.-->
-				<!--Global inventory of fisheries measures adopted in ABNJ <br />
-				to prevent significant adverse impacts of high-seas <br />
-				bottom fisheries on vulnerable marine ecosystems (VMEs) and associated information
-            </div>-->
-        </div>
-        
-        <div style="position:relative" id="main">
-            </BR></BR></BR>
-            Overlays
-        </div>
-	
+			<div style="position:relative; height:800px;" id="main">
+				<ul>
+					<li style="font-weight: bold;">RFB Competence Areas:</li>
+					<p style="line-height: 100%;">
+						FAO. Areas of competence of Regional Fishery Bodies. 
+						More information at <a href="http://www.fao.org/fishery/rfb/en">http://www.fao.org/fishery/rfb/en</a>
+					</p>
+					<li style="font-weight: bold;">Hydrotermal vents:</li>
+					<p style="line-height: 100%;">
+						Location of Hydrotermal vents from the Interridge database:
+						Beaulieu, S.E., 2013, InterRidge Global Database of Active Submarine Hydrothermal Vent Fields: prepared for InterRidge, Version 3.1. 
+						World Wide Web electronic publication. Version 3.2 accessed 2014-10-21, <a href="http://vents-data.interridge.org">http://vents-data.interridge.org</a>
+					</p>
+					<li style="font-weight: bold;">GEBCO Isobath 2000:</li>
+					<p style="line-height: 5%;">
+						2000 meters depth bathymetry isoline, and 
+					</p>
+					<p style="font-weight: bold; line-height: 5%;">GEBCO undersea features:</p>
+					<p style="line-height: 100%;">
+						Undersea features locations and names extracted from the
+						GEBCO Digital Atlas (GDA): IOC, IHO and BODC, 2003. Centenary Edition of the GEBCO Digital Atlas, published on CD-ROM on behalf of the 
+						Intergovernmental Oceanographic Commission and the International Hydrographic Organization as part of the 
+						General Bathymetric Chart of the Oceans, British Oceanographic Data Centre, Liverpool, U.K. 
+						More information at <a href="http://www.gebco.net/data_and_products/gebco_digital_atlas/">http://www.gebco.net/data_and_products/gebco_digital_atlas/</a>
+					</p>
+					<li style="font-weight: bold;">Ocean and Sea names:</li>
+					<p style="line-height: 100%;">
+						ESRI, DeLorme, HERE, GEBCO, NOAA, National Geographic, Geonames.org, and other contributors
+						More information at <a href="http://www.arcgis.com/home/item.html?id=0fd0c5b7a647404d8934516aa997e6d9">http://www.arcgis.com/home/item.html?id=0fd0c5b7a647404d8934516aa997e6d9</a>
+					</p>
+					<li style="font-weight: bold;">200 nautical miles arcs:</li>
+					<p style="line-height: 100%;">
+						Lines located at a distance of 200 nautical miles arcs from the baseline, extracted from the VLIZ MarBound database:
+						Claus S., N. De Hauwere, B. Vanhoorne, F. Souza Dias, F. Hernandez, and J. Mees (Flanders Marine Institute) (2014). 
+						MarineRegions.org. Accessed at <a href="http://www.marineregions.org on 2014-10-23">http://www.marineregions.org on 2014-10-23</a>. 
+					</p>
+					<p style="font-style: italic; line-height: 90%;">
+						(The layer displayed in the VME database is derived from the original dataset and hides specific arcs for the following 
+						areas: (a) Bouvet Island - Atlantic Ocean, (b) Antarctica - Southern Ocean and (c) South Georgia and the Sandwich Islands - Atlantic Ocean)
+					</p>
+					<li style="font-weight: bold;">FAO Fishing areas:</li>
+					<p style="line-height: 100%;">
+						FAO Major Fishing Areas for statistical purposes. 
+						More information at <a href="http://www.fao.org/fishery/cwp/handbook/h/en">http://www.fao.org/fishery/cwp/handbook/h/en</a>. 
+					</p>
+					<li style="font-weight: bold;">Oceans imagery:</li>
+					<p style="line-height: 100%;">
+						Made with Natural Earth. Blended depth colors and relief shading of the ocean bottom derived from CleanTOPO2 data. 
+						More information at <a href="http://www.naturalearthdata.com/downloads/50m-ocean-bottom/50m-ocean-bottom/">http://www.naturalearthdata.com/downloads/50m-ocean-bottom/50m-ocean-bottom/</a>.
+					</p>
+				</ul>
+				<br/>
+			</div>
+		</div>
 	</div>
-</div>
 
-<div id ="disclaimer">
-		</div>
-<div id="bottomBar1"><a href="http://www.geo-solutions.it" style="float:left;text-align:left;padding-left:2px;">Credits</a>
-			powered by
-			<a title="FIGIS web site" href="http://www.fao.org/fishery/figis/en">FIGIS</a>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<div id ="disclaimer"></div>
+	<div id="bottomBar1" style="top:-50px;">
+		<a href="http://www.geo-solutions.it" style="float:left;text-align:left;padding-left:2px;">Credits</a>
+		powered by
+		<a title="FIGIS web site" href="http://www.fao.org/fishery/figis/en">FIGIS</a>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-			<a title="FAO Copyright" target="_blank" href="http://www.fao.org/corp/copyright/en/">
-				&copy;&nbsp;FAO,
-				<span id="copyYear">2011</span>
-				&nbsp;
-			</a>
-		</div>
+		<a title="FAO Copyright" target="_blank" href="http://www.fao.org/corp/copyright/en/">
+			&copy;&nbsp;FAO,
+			<span id="copyYear">2011</span>
+			&nbsp;
+		</a>
+	</div>
 	<script type="text/javascript">
 	// <![CDATA[
 		document.getElementById('disclaimer').innerHTML = "<strong>Disclaimer:</strong> The designations employed and the presentation of material in the map(s) are for illustration only and do not imply the expression of any opinion whatsoever on the part of FAO concerning the legal or constitutional status of any country, territory or sea area, or concerning the delimitation of frontiers or boundaries.";
