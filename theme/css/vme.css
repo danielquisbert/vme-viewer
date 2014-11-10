@@ -6,11 +6,10 @@ body {
     padding : 0;
     text-align : center;
     width : 100%;
-
     padding-top: 26px;
     padding-bottom: 51px;
-
 }
+
 #page {
     z-index: 1;
     width: 960px;
