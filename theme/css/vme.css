@@ -28,12 +28,12 @@ body {
 
 #page_e {
     z-index: 1;
-    width: 960px;
+    width: 920px; /*960px;*/
     height: 680px;
     background-image: none;
-    border-width: 1px;
+    /*border-width: 1px;
     border-style: solid;
-    border-color: #000000;
+    border-color: #000000;*/
     background-color: #FFFFFF;
     padding-bottom: 0px;
     margin-left: auto;
@@ -43,9 +43,7 @@ body {
 }
 
 #wrapper{
-    margin: 20px;
-
-
+    margin: 0px; /*20px;*/
 }
 a, a:visited {
                    color : #2d8b8c;
@@ -488,7 +486,7 @@ li {
 #MemberCountries {
 }
 #wrapper {
-                  margin : 20px;
+                  /*margin : 20px;*/
               text-align : left;
                    width : 920px;
 }
@@ -609,7 +607,7 @@ li {
     margin-top:2px;
     margin-bottom:2px;
     margin-right: auto;
-    top:-40px;
+    top:-60px;
     position:relative;
     text-align:left;
 }
@@ -658,8 +656,8 @@ li {
                 position : absolute;
 }
 .olFAOLogo{
-    height:60px;
-    width:56px;
+    height:98px; /*60px;*/
+    width:244px; /*56px;*/
 }
 
 
