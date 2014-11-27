@@ -42,9 +42,19 @@ body {
     margin-right: auto;
 }
 
-#wrapper{
-    margin: 0px; /*20px;*/
+#wrapper_e{
+    margin: 0px; 
+    text-align : left;
+    width : 920px;
 }
+
+#wrapper{
+    margin: 20px;
+    margin : 20px;
+    text-align : left;
+    width : 920px;
+}
+
 a, a:visited {
                    color : #2d8b8c;
          text-decoration : none;
@@ -485,11 +495,7 @@ li {
 }
 #MemberCountries {
 }
-#wrapper {
-                  /*margin : 20px;*/
-              text-align : left;
-                   width : 920px;
-}
+
 #top {
        background-repeat : no-repeat;
                    color : rgb(11, 50, 93);
