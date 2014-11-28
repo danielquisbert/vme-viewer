@@ -67,9 +67,9 @@ Ext.onReady(function(){
         //var disclaimerDiv = Ext.get('disclaimer');
         new Ext.IframeWindow({
             id:'factsheetWindow',
-            x: tbarDiv.getX() - 5,
+            x: tbarDiv.getX(),
             y: tbarDiv.getY() + tbarDiv.getHeight() - 10,
-            width: mainDiv.getWidth() + 10,
+            width: mainDiv.getWidth(),
             height: mainDiv.getHeight() + tbarDiv.getHeight() + 170,//+disclaimerDiv.getHeight(),
             //title: "VME fact sheet <a style=\"position:absolute;right:60px;\" onclick=\"Ext.getCmp('factsheetWindow').close();\">&laquo;back to map&nbsp;</a>",
 			title: " <a style=\"position:absolute;right:60px;\" onclick=\"Ext.getCmp('factsheetWindow').close();\">&laquo;Back to map&nbsp;</a>",
