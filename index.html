@@ -98,7 +98,7 @@
         #header {
             width: 920px;
             position: relative;
-            background-image: url(theme/img/new_vme_banner.jpg);
+            background-image: url(theme/img/new-vme-banner.jpeg);
             background-repeat: no-repeat;
             background-position: left top;
             height: 156px;
@@ -320,56 +320,56 @@ document.namespaces;
    
 </div>
 
-<div id ="disclaimer">
-		</div>
-<div id="bottomBar1"><a href="http://www.geo-solutions.it" style="float:left;text-align:left;padding-left:2px;">Credits</a>
-			powered by
-			<a title="FIGIS web site" href="http://www.fao.org/fishery/figis/en">FIGIS</a>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<div id ="disclaimer"></div>
+<div id="bottomBar1">
+	<!--a href="http://www.geo-solutions.it" style="float:left;text-align:left;padding-left:2px;">Credits</a>
+	powered by
+	<a title="FIGIS web site" href="http://www.fao.org/fishery/figis/en">FIGIS</a-->
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-			<a title="FAO Copyright" target="_blank" href="http://www.fao.org/corp/copyright/en/">
-				&copy;&nbsp;FAO,
-				<span id="copyYear">2011</span>
-				&nbsp;
-			</a>
-		</div>
-	<script type="text/javascript">
-	// <![CDATA[
-		Ext.onReady(function(){
-			sidePanel.render(document.getElementById('sidebarP'));
-            
-            //selectRFB.render(document.getElementById('RFBCombo_'));
+	<a title="FAO Copyright" target="_blank" href="http://www.fao.org/corp/copyright/en/">
+		&copy;&nbsp;FAO,
+		<span id="copyYear">2011</span>
+		&nbsp;
+	</a>
+</div>
+<script type="text/javascript">
+// <![CDATA[
+	Ext.onReady(function(){
+		sidePanel.render(document.getElementById('sidebarP'));
+		
+		//selectRFB.render(document.getElementById('RFBCombo_'));
 
-			setVMEPage('embed-link','embed-url', 'embed-iframe');
+		setVMEPage('embed-link','embed-url', 'embed-iframe');
+		
+		Ext.QuickTips.init();
+
+		//FigisMap.ol.setSelectedYear(new Date().getFullYear());  // moved in setVMEPage to manage embed link
+		
+		if(Ext.isIE7 || Ext.isIE8 || Ext.isIE9)
+			Ext.get('yearCurrent').addClass('ie');
 			
-            Ext.QuickTips.init();
-
-            //FigisMap.ol.setSelectedYear(new Date().getFullYear());  // moved in setVMEPage to manage embed link
-			
-    		if(Ext.isIE7 || Ext.isIE8 || Ext.isIE9)
-                Ext.get('yearCurrent').addClass('ie');
-                
-            Proj4js.defs["EPSG:3031"] = "+proj=stere +lat_0=-90 +lat_ts=-71 +lon_0=0 +k=1 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs";
-		});
-		
-		function updateCopyYear() {
-			var uy = new Date();
-			uy = parseInt(uy.getFullYear() ? uy.getFullYear() : uy.getYear());
-			var py = parseInt( document.getElementById('copyYear').innerHTML );
-			if ( isNaN(uy) || isNaN(py) ) return void(0);
-			if ( uy > py ) document.getElementById('copyYear').innerHTML = String( uy );
-			return void(0);
-		}
-		
-		updateCopyYear();
-		document.getElementById('disclaimer').innerHTML = FigisMap.label('DISCLAIMER', '<p></p>');
-		
-		var subTitle = document.getElementById('subTitle');
-		if(subTitle){
-			subTitle.innerHTML = FigisMap.label('SUB_TITLE');
-		}		
-	// ]]>
-	</script>
+		Proj4js.defs["EPSG:3031"] = "+proj=stere +lat_0=-90 +lat_ts=-71 +lon_0=0 +k=1 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs";
+	});
+	
+	function updateCopyYear() {
+		var uy = new Date();
+		uy = parseInt(uy.getFullYear() ? uy.getFullYear() : uy.getYear());
+		var py = parseInt( document.getElementById('copyYear').innerHTML );
+		if ( isNaN(uy) || isNaN(py) ) return void(0);
+		if ( uy > py ) document.getElementById('copyYear').innerHTML = String( uy );
+		return void(0);
+	}
+	
+	updateCopyYear();
+	document.getElementById('disclaimer').innerHTML = FigisMap.label('DISCLAIMER', '<p></p>');
+	
+	var subTitle = document.getElementById('subTitle');
+	if(subTitle){
+		subTitle.innerHTML = FigisMap.label('SUB_TITLE');
+	}		
+// ]]>
+</script>
 	<!--<input type="button" id="addlayer" value="Show RFB" onclick="addLayer()"/>
 	<input type="button" id="addlayer" value="Show zoom" onclick="SLD()"/>-->
 	</body>
