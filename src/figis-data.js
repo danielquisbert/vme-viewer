@@ -24,7 +24,8 @@
 // FIXED ZOOM TO FOR SOME RFB TYPE (ZOOM TO WRAPDATELINE FEATURES)
 var vmeViewerRFBZoomTo = {
     SPRFMO : {isWrapDateLine: true, zoomExtent: new OpenLayers.Bounds(-50, -60, 100, 10)},
-    NPFC : {isWrapDateLine: true, zoomExtent: new OpenLayers.Bounds(-55, 15, 75, 55)}
+    NPFC : {isWrapDateLine: true, zoomExtent: new OpenLayers.Bounds(-55, 15, 75, 55)},
+	NEAFC : {isWrapDateLine: false, zoomExtent: new OpenLayers.Bounds(-78.93, 32.38, 82.77, 77.23)}
 }
 
 
