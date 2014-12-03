@@ -266,7 +266,7 @@ Vme.data={
 						//'<em>Management Body/Authority: </em><span class="own">{owner}</span><br/>'+
 						//'<em>Geographical reference: </em><span class="geo_ref" >{geo_ref}</span> <br/>'+
 						'<em>Area Type: </em><span>{vmeType}</span> <br/> '+
-                        '<em>Surface: </em><span>{[Vme.utils.surfaceUoMConverter(values, "skm")]}</span><em> (km&#178;)</em> <br/> '+
+                        '<em>Surface: </em><span>{[Vme.utils.surfaceUoMConverter(values, "skm")]}</span><span> km&#178;</span> <br/> '+
 						//'<em>Start Date: </em><span>{validityPeriodFrom}</span> <br/> '+
                         //'<em>End Date: </em><span>{validityPeriodTo}</span> <br/> '+                        
 						// '<em>UN Criteria: </em>{criteria}<br/> '+
@@ -486,7 +486,7 @@ Vme.data={
 						'<em>Year: </em>{feature_year}<br/> '+
 						'<em>Management Body/Authority: </em><span class="own">{owner_acronym}</span><br/>'+
 						'<em>Geographical reference: </em><span class="geo_ref" >{feature_geo_ref}</span> <br/>'+
-                        '<em>Surface: </em><span>{[Vme.utils.surfaceUoMConverter(values, "skm")]}</span><em> (km&#178;)</em> <br/> '+                         
+                        '<em>Surface: </em><span>{[Vme.utils.surfaceUoMConverter(values, "skm")]}</span><span> km&#178;</span> <br/> '+                         
 						//'<br/><br/>'+
 						'<br/>' +
 						'<div>'+
@@ -823,7 +823,7 @@ Vme.data={
 						'<em>Year: </em>{year}<br/> '+
 						'<em>Management Body/Authority: </em><span class="own">{owner}</span><br/>'+
 						'<em>Geographical reference: </em><span class="geo_ref" >{geo_ref}</span> <br/>'+
-                        '<em>Surface: </em><span>{[Vme.utils.surfaceUoMConverter(values , "skm")]}</span><em> (km&#178;)</em> <br/> '+                         
+                        '<em>Surface: </em><span>{[Vme.utils.surfaceUoMConverter(values , "skm")]}</span><span> km&#178;</span> <br/> '+                         
 						//'<br/><br/>'+
                         '<br/>' +
 						'<div>'+
