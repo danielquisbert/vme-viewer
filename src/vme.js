@@ -427,7 +427,7 @@ function addVME(extent, zoom, projection, elinkDiv, urlLink, htmlLink, filter, c
 	//sets the zoom dropdown to default values when the area selection and the selection of projection change
 	//populateZoomAreaOptions('FilterRFB');
 	
-	var embedded = location.search.indexOf("embed=true") != -1 ? true : false;
+	var embeddedIframe = location.href.indexOf("index_e.html") != -1 ? true : false;
 	
 	/*
 	 * target: where to create the map
@@ -435,12 +435,12 @@ function addVME(extent, zoom, projection, elinkDiv, urlLink, htmlLink, filter, c
 	 */
 	var pars = {
 		rfb		    : '',
-		target		: embedded ? 'map_e' : 'map',
+		target		: embeddedIframe ? 'map_e' : 'map',
 		context		: 'rfbViewer',
 		legend		: 'legend',
 		projection	: projection,
 		//center : center ? center : new OpenLayers.LonLat(14, -26)
-		center : center ? center : (embedded ? new OpenLayers.LonLat(14, -26) : new OpenLayers.LonLat(-2.46, 18.23))
+		center : center ? center : (embeddedIframe ? new OpenLayers.LonLat(14, -26) : new OpenLayers.LonLat(-2.46, 18.23))
 	};
     
     if ( zoom != null ) pars.zoom = zoom;
