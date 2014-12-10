@@ -171,14 +171,20 @@ var Vme={
 		generateVMEFilter:function(vme_id){
 			if (vme_id ==undefined) return ;
 			return "VME_ID = '" +vme_id +"'";
-		}
-		
+		},
+		surfaceUoMConverter: function(values, uom){
+			if(uom == "ha"){
+				var hectares = values.surface/10000;
+				return Math.round(hectares);
+			}else if(uom == "skm"){
+				var skm = values.surface/1000000;
+				return Math.round(skm);
+			}
+		}		
 	}
 
 
 };
-
-
 
 /** 
  * Vme.data contains templates and base Extjs Stores, models to load Vme data
@@ -260,7 +266,7 @@ Vme.data={
 						//'<em>Management Body/Authority: </em><span class="own">{owner}</span><br/>'+
 						//'<em>Geographical reference: </em><span class="geo_ref" >{geo_ref}</span> <br/>'+
 						'<em>Area Type: </em><span>{vmeType}</span> <br/> '+
-                        '<em>Surface: </em><span>{[this.toHectares(values)]}</span><em> (ha)</em> <br/> '+
+                        '<em>Surface: </em><span>{[Vme.utils.surfaceUoMConverter(values, "skm")]}</span><span> km&#178;</span> <br/> '+
 						//'<em>Start Date: </em><span>{validityPeriodFrom}</span> <br/> '+
                         //'<em>End Date: </em><span>{validityPeriodTo}</span> <br/> '+                        
 						// '<em>UN Criteria: </em>{criteria}<br/> '+
@@ -318,10 +324,6 @@ Vme.data={
                             }
                         }
                         return html;
-                    },
-                    toHectares:function(values){
-                        var hectares = values.surface/10000;
-                        return Math.round(hectares);
                     },
 					getBBOX:function(values){
                         if (values.bbox.left == -180)
@@ -484,7 +486,7 @@ Vme.data={
 						'<em>Year: </em>{feature_year}<br/> '+
 						'<em>Management Body/Authority: </em><span class="own">{owner_acronym}</span><br/>'+
 						'<em>Geographical reference: </em><span class="geo_ref" >{feature_geo_ref}</span> <br/>'+
-                        '<em>Surface: </em><span>{[this.toHectares(values)]}</span><em> (ha)</em> <br/> '+                         
+                        '<em>Surface: </em><span>{[Vme.utils.surfaceUoMConverter(values, "skm")]}</span><span> km&#178;</span> <br/> '+                         
 						//'<br/><br/>'+
 						'<br/>' +
 						'<div>'+
@@ -520,11 +522,7 @@ Vme.data={
                             }
                         }
                         return html;
-                    },                    
-                    toHectares:function(values){
-                        var hectares = values.surface/10000
-                        return Math.round(hectares);
-                    },                    
+                    },                            
 					getBBOX:function(values){
                         if (values.bbox.left == -180)
                             values.bbox.left = 180
@@ -825,7 +823,7 @@ Vme.data={
 						'<em>Year: </em>{year}<br/> '+
 						'<em>Management Body/Authority: </em><span class="own">{owner}</span><br/>'+
 						'<em>Geographical reference: </em><span class="geo_ref" >{geo_ref}</span> <br/>'+
-                        '<em>Surface: </em><span>{[this.toHectares(values)]}</span><em> (ha)</em> <br/> '+                         
+                        '<em>Surface: </em><span>{[Vme.utils.surfaceUoMConverter(values , "skm")]}</span><span> km&#178;</span> <br/> '+                         
 						//'<br/><br/>'+
                         '<br/>' +
 						'<div>'+
@@ -848,11 +846,7 @@ Vme.data={
 					compiled:true,           
                     getFactsheet: function(values){
                         return Vme.factsheetUrl[values.owner];
-                    },                    
-                    toHectares:function(values){
-                        var hectares = values.surface/10000
-                        return Math.round(hectares);
-                    },                    
+                    },                                    
 					getBBOX:function(values){
                         if (values.bbox.left == -180)
                             values.bbox.left = 180

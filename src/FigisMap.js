@@ -1087,7 +1087,7 @@ FigisMap.rnd.addAutoLayers = function( layers, pars ) {
 			type		: 'auto',
 			style		: 'vents_InterRidge_2011_all',
             group: "Additional features",
-            label	: 'Hydrotermal Vents',
+            label	: 'Hydrothermal Vents',
 			remote		: false,
             showLegendGraphic: true,	            
 			skipLegend	: true,
