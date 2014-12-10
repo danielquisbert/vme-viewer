@@ -84,7 +84,7 @@ FigisMap.defaults = {
 	layerFilter	: '',
 	layerStyle	: '*',
 	layerStyles	: { distribution : 'all_fao_areas_style', intersecting : '*', associated : '*' },
-	mapCenter : new OpenLayers.LonLat(14, -26),
+	mapCenter : new OpenLayers.LonLat(-2.46, 18.23),
 	mapCenterProjection : 4326
 };
 
@@ -92,7 +92,7 @@ FigisMap.useProxy = FigisMap.isDeveloper ? false : ( FigisMap.isTesting ? FigisM
 
 FigisMap.geoServerAbsBase = FigisMap.isDeveloper ? 'http://192.168.1.122:8484' : ( FigisMap.isTesting ? 'http://193.43.36.238:8484' : 'http://www.fao.org' );
 
-FigisMap.geoServerBase = "http://figisapps.fao.org";
+FigisMap.geoServerBase = FigisMap.currentSiteURI.indexOf('localhost') != -1 ? "http://figisapps.fao.org" : "http://" + window.location.hostname;
 //FigisMap.geoServerBase = "http://www.fao.org";
 //FigisMap.geoServerBase = "http://" + window.location.hostname;
 
@@ -109,8 +109,9 @@ FigisMap.rnd.vars = {
 	geoserverURL		: FigisMap.geoServerBase + FigisMap.geoServerResource,  //unused
 	geowebcacheURL		: FigisMap.geoServerBase + FigisMap.geoServerResource + "/gwc/service",
 	//logoURL			: FigisMap.httpBaseRoot + "theme/img/FAO_blue_20.png",
-	logoURL			    : FigisMap.httpBaseRoot + "theme/img/FAO_logo_Blue_3lines_en_200x55.png",
-	//logoURL			: "http://localhost:8080/VME-Viewer/theme/img/FAO_logo_Blue_3lines_en_200x55.png",
+	//logoURL			    : FigisMap.httpBaseRoot + "theme/img/FAO_logo_Blue_3lines_en_200x55.png",
+	logoURL			    : FigisMap.httpBaseRoot + "theme/img/new_watermark.png",
+	//logoURL			: "http://localhost:8080/vme/theme/img/new_watermark.png",
 	logoURLFirms		: FigisMap.httpBaseRoot + "theme/img/logoFirms60.gif",
 	FAO_fishing_legendURL	: FigisMap.httpBaseRoot + "theme/img/FAO_fishing_legend.png",
 	EEZ_legendURL		: FigisMap.httpBaseRoot + "theme/img/EEZ_legend.png",
@@ -469,11 +470,11 @@ FigisMap.parser.projection = function( p ) {
 
 FigisMap.parser.watermark = function( p ) {
 	//if ( p && p.context.indexOf('FIRMS') == 0 ) return false;
-	var w = { src: FigisMap.rnd.vars.logoURL, width: 244/*60*/, height: 98/*60*/, wclass: 'olPoweredBy', title:FigisMap.label('Powered by FIGIS',p) };
+	var w = { src: FigisMap.rnd.vars.logoURL, width: 176/*60*/, height: 48/*60*/, wclass: 'olPoweredBy', title:FigisMap.label('Powered by FIGIS',p) };
 	if ( p && p.context.indexOf('FIRMS') == 0 ) {
 		w.src = FigisMap.rnd.vars.logoURLFirms;
-		w.width = 244;//60;
-		w.height = 98;//29;
+		w.width = 176;//60;
+		w.height = 48;//29;
 	}else{
         w.displayClass = "olFAOLogo";
     }
@@ -1727,7 +1728,7 @@ FigisMap.renderer = function(options) {
 	var myBounds, boundsOrigin, boundsBox;
 	var target, projection, extent, center, zoom;
 	var olLayers = new Array();
-	var olImageFormat = OpenLayers.Util.alphaHack() ? "image/gif" : "image/png";
+	var olImageFormat = OpenLayers.Util.alphaHack() ? "image/gif" : "image/png8";
     var info = {controls: []};
 	
 	// pink tile avoidance

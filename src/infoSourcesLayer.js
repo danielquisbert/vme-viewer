@@ -35,17 +35,17 @@ Ext.IframeWindow = Ext.extend(Ext.Window, {
             }
         };
         Ext.IframeWindow.superclass.onRender.apply(this, arguments);
-        this.tbarDiv = Ext.get('logo');
+        this.tbarDiv = Ext.get('topBar');
         this.mainDiv = Ext.get('main');
         this.disclaimerDiv = Ext.get('disclaimer');
         Ext.EventManager.onWindowResize(this.resizeHandler, this);
 
-    }
-    ,onDestroy: function(){
+    },
+	onDestroy: function(){
         Ext.EventManager.removeResizeListener(this.resizeHandler, this);
         
-    }
-    ,resizeHandler: function(w, h){
+    },
+	resizeHandler: function(w, h){
         this.setPosition(this.tbarDiv.getX() -5 , this.tbarDiv.getY() + this.tbarDiv.getHeight() - 31 );
         this.setWidth(this.mainDiv.getWidth() + 10 );
         this.setHeight(this.mainDiv.getHeight() + this.tbarDiv.getHeight() - 49 );
@@ -60,7 +60,7 @@ Ext.onReady(function(){
         if(!InfoSourcesLayerUrl)
             //InfoSourcesLayerUrl = "http://figisapps.fao.org/";
             InfoSourcesLayerUrl = FigisMap.geoServerBase + "/";
-        var tbarDiv = Ext.get('logo');
+        var tbarDiv = Ext.get('topBar');
         var mainDiv = Ext.get('main');
         //var disclaimerDiv = Ext.get('disclaimer');
         new Ext.IframeWindow({
@@ -74,7 +74,8 @@ Ext.onReady(function(){
             //src: addUrl ? "http://figisapps.fao.org/" + InfoSourcesLayerUrl : InfoSourcesLayerUrl,
             src: addUrl ? FigisMap.geoServerBase + "/" + InfoSourcesLayerUrl : InfoSourcesLayerUrl,
             closeAction: 'destroy',
-            maximizable: true,
+            maximizable: false,
+			maximized: true,
             draggable: false,
             resizable: false,
             shadow: false

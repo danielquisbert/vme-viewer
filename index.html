@@ -96,7 +96,8 @@
     <!-- header style -->
     <style type="text/css">
         #header {
-            width: 920px;
+            /*width: 920px;*/
+			width: 100%;
             position: relative;
             background-image: url(theme/img/new_vme_banner.jpg);
             background-repeat: no-repeat;
@@ -166,31 +167,23 @@ document.namespaces;
             </div> 
         </div-->
 
-        <div  id="header">
-            <div id="logo"><!--a href="#" onClick="resetVME();"><img src="theme/img/logo.fw.png" width="377" height="172"  alt=""/></a--></div>
-            <!--div id="subTitle" class="info"-->
-            	<!--The Vulnerable Marine Ecosystem Database (VME-DB)<br />
-            	gathers information on VME areas stored in harmonized<br />
-            	way and disseminated through maps and fact sheets.-->
-				<!--Global inventory of fisheries measures adopted in ABNJ <br />
-				to prevent significant adverse impacts of high-seas <br />
-				bottom fisheries on vulnerable marine ecosystems (VMEs) and associated information
-            </div>-->
-        </div>
+        <!--div  id="header">
+            <div id="logo"></div>
+        </div-->
 
-		<div  style="display:none" id="topBar">			
+		<iframe src="banner/" width="100%" height="80" border="0" frameborder="0"></iframe>
+		
+		<div style="display: none;" id="topBar">			
 			<label id="lblFilRFB" style="visibility:hidden">Zoom to:</label>
-			<select  style="visibility:hidden" id="FilterRFB" onchange="setZoom()"></select>
-			<label style="visibility:hidden" id="lblRFB">Filter by:</label>
-			<select style="visibility:hidden" id="SelectRFB" onchange="setVME(null, null, null, 'e-link','rfbs-link', 'rfbs-html')"></select>    
+			<select  style="visibility:hidden;" id="FilterRFB" onchange="setZoom()"></select>
+			<label style="visibility:hidden;" id="lblRFB">Filter by:</label>
+			<select style="visibility:hidden;" id="SelectRFB" onchange="setVME(null, null, null, 'e-link','rfbs-link', 'rfbs-html')"></select>    
 
 			<!--a href="javascript:embedLink();" id="EmbedLink" title="Link or embed this RFB map"><span>Link</span></a-->
 			<input id="txtCql" type="hidden" />
 			<input id="command" type="hidden" />
-
 			<input id="opt" type="hidden" />
 			
-            
             <!--div id="selectionRFB" onClick="setVMEEmbedLink('embed-url', 'embed-iframe');"></div-->
             
 			<!-- li>
@@ -209,8 +202,8 @@ document.namespaces;
 			</li -->					
 		</div> 
 		
-		<div style="position:relative" id="main">
-			<div id="map"  class="map"></div>
+		<div style="position: absolute;" id="main">
+			<div id="map" class="map"></div>
             
             <!--div  id="bottomRightPanel">
                 <div id="yearLess" onClick="FigisMap.ol.decrementYear(); setVMEEmbedLink('embed-url', 'embed-iframe');" unselectable="on"></div>               
@@ -223,8 +216,7 @@ document.namespaces;
                 </div>                
             </div-->      
             
-            <div id="bottomLeftPanel">
-            
+            <div id="bottomLeftPanel">            
                 <div id="selectionYears" onclick="toggleYearsPanel();">
                     Year selection
                 </div> 
@@ -274,8 +266,7 @@ document.namespaces;
                             <label>Mollweide</label>
                         </p>
                    </div> 
-                </div>
-                
+                </div>                
             </div>
 
             <div id="loginContainer">		
@@ -320,19 +311,19 @@ document.namespaces;
    
 </div>
 
-<div id ="disclaimer">
-		</div>
-<div id="bottomBar1"><a href="http://www.geo-solutions.it" style="float:left;text-align:left;padding-left:2px;">Credits</a>
-			powered by
-			<a title="FIGIS web site" href="http://www.fao.org/fishery/figis/en">FIGIS</a>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<!--div id ="disclaimer"></div>
+	<div id="bottomBar1">
+		<a href="http://www.geo-solutions.it" style="float:left;text-align:left;padding-left:2px;">Credits</a>
+		powered by
+		<a title="FIGIS web site" href="http://www.fao.org/fishery/figis/en">FIGIS</a>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-			<a title="FAO Copyright" target="_blank" href="http://www.fao.org/corp/copyright/en/">
-				&copy;&nbsp;FAO,
-				<span id="copyYear">2011</span>
-				&nbsp;
-			</a>
-		</div>
+		<a title="FAO Copyright" target="_blank" href="http://www.fao.org/corp/copyright/en/">
+			&copy;&nbsp;FAO,
+			<span id="copyYear">2011</span>
+			&nbsp;
+		</a>
+	</div-->
 	<script type="text/javascript">
 	// <![CDATA[
 		Ext.onReady(function(){
@@ -352,7 +343,7 @@ document.namespaces;
             Proj4js.defs["EPSG:3031"] = "+proj=stere +lat_0=-90 +lat_ts=-71 +lon_0=0 +k=1 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs";
 		});
 		
-		function updateCopyYear() {
+		/*function updateCopyYear() {
 			var uy = new Date();
 			uy = parseInt(uy.getFullYear() ? uy.getFullYear() : uy.getYear());
 			var py = parseInt( document.getElementById('copyYear').innerHTML );
@@ -362,7 +353,7 @@ document.namespaces;
 		}
 		
 		updateCopyYear();
-		document.getElementById('disclaimer').innerHTML = FigisMap.label('DISCLAIMER', '<p></p>');
+		document.getElementById('disclaimer').innerHTML = FigisMap.label('DISCLAIMER', '<p></p>');*/
 		
 		var subTitle = document.getElementById('subTitle');
 		if(subTitle){
