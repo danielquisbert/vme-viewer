@@ -57,34 +57,46 @@ Ext.onReady(function(){
 	//Factsheet window
 	//
     FigisMap.factsheetRel = function(factsheetUrl){
-        //var factsheetUrl = factsheetUrl.replace("http://figisapps.fao.org/","");
         var factsheetUrl = factsheetUrl.replace(FigisMap.geoServerBase + "/","");
-        if(!factsheetUrl)
-            //factsheetUrl = "http://figisapps.fao.org/fishery/vme/10/en";
+        if(!factsheetUrl){
             factsheetUrl = FigisMap.geoServerBase + "/fishery/vme/10/en";
-        var tbarDiv = Ext.get('topBar');
-        var mainDiv = Ext.get('main');
-        //var disclaimerDiv = Ext.get('disclaimer');
-        new Ext.IframeWindow({
+		}
+		
+        var tbarDiv = Ext.get('logo') || Ext.get('topBar');
+        var mainDiv = Ext.get('main') || Ext.get('main_e');
+		var bannerIframe = Ext.get('banner');
+		
+		var embeddedIframe = location.href.indexOf("index_e.html") != -1 ? true : false;
+		
+		var pars;
+		if(embeddedIframe){
+			pars = {
+				x: tbarDiv.getX(),
+				y: tbarDiv.getY() + tbarDiv.getHeight() - 10,
+				width: mainDiv.getWidth(),
+				height: mainDiv.getHeight() + tbarDiv.getHeight() + 170,
+			};
+		}else{
+			pars = {
+				x: tbarDiv.getX() + 10,
+				y: tbarDiv.getY() + tbarDiv.getHeight() + 10,
+				width: mainDiv.getWidth() - 20,
+				height: mainDiv.getHeight() + bannerIframe.getHeight() - 30,
+			};	
+		}	
+		
+        new Ext.IframeWindow(Ext.applyIf({
             id:'factsheetWindow',
-            x: tbarDiv.getX(),
-            y: tbarDiv.getY() + tbarDiv.getHeight() - 10,
-            width: mainDiv.getWidth(),
-            height: mainDiv.getHeight() + tbarDiv.getHeight() + 170,//+disclaimerDiv.getHeight(),
-            //title: "VME fact sheet <a style=\"position:absolute;right:60px;\" onclick=\"Ext.getCmp('factsheetWindow').close();\">&laquo;back to map&nbsp;</a>",
 			title: " <a style=\"position:absolute;right:60px;\" onclick=\"Ext.getCmp('factsheetWindow').close();\">&laquo;Back to map&nbsp;</a>",
-            //src:"http://figisapps.fao.org/"+factsheetUrl,
             src: FigisMap.geoServerBase + "/" + factsheetUrl,
-            //src:factsheetUrl,
             closeAction: 'destroy',
             maximizable: false,
-			maximized: true,
+			maximized: false,
             draggable: false,
             resizable: false,
             shadow: false
-        }).show();
+        }, pars)).show();
     };
-	
 	
 });
  
