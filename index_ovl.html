@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" style="height: 700px;">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"">
 
 <head>    
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -12,62 +12,41 @@
     
 	<link rel="stylesheet" type="text/css" href="lib/OpenLayers/theme/default/style.css" />
 	<link rel="stylesheet" href="theme/css/style.css" type="text/css" />
-	<!--<link rel="stylesheet" href="theme/css/html.css" type="text/css" />-->
 	<link rel="stylesheet" href="theme/css/vme.css" type="text/css" />
     <link rel="stylesheet" href="theme/css/vmefonts.css" type="text/css" />    
 	
     <!-- header style -->
     <style type="text/css">
-			#header {
-				width: 825px;
-				position: relative;
-				background-image: url(theme/img/new_vme_banner_ovl.jpg);
-				background-repeat: no-repeat;
-				background-position: left top;
-				height: 156px;
-			}
-			#header #logo {
-				width: 400px;
-			}
-			#header .info {
-				width: 360px;
-				position: absolute;
-				right: 20px;
-				top: 40px;
-				color: #fff;
-				font-family: Verdana, Helvetica, Arial, sans-serif;
-				font-style: normal;
-				font-weight: normal;
-				font-size: 12px;
-				line-height: 16px;
-				text-align: left;
-				text-shadow: 1px 1px 2px #000;
-			}
-			img{
-				max-width: 100%
-			}
-			
 			.body_ovl{
 				font : normal  12px;
 				font-family : Verdana, Helvetica, sans-serif;
 				text-align : left;
 			}
+			
+			#page_ovl {
+				z-index: 1;
+				width: 960px;
+				height: 830px;
+				background-image: none;
+				border-width: 1px;
+				border-style: solid;
+				border-color: #000000;
+				background-color: #FFFFFF;
+				padding-bottom: 0px;
+				margin-left: auto;
+				margin-top:20px;
+				margin-bottom:20px;
+				margin-right: auto;
+			}
 	</style>
-
-	<script type="text/javascript">
-	//Workaround for IE7 IE8 http://trac.osgeo.org/openlayers/ticket/2304
-	document.namespaces;
-	</script>
 
 </head>
 
 <body bgcolor="#0071bc" class="body_ovl" style="padding-top: 0px; padding-bottom: 0px;">
-	<div id="page" style="width: 850px; height:700px;">
-		<div id="wrapper" style="margin: 13px; width: 825px;">
-			<!--<div  id="header">-->
-			</div>
+	<div id="page_ovl">
+		<div id="wrapper" style="margin: 0 auto;">
 			
-			<div style="position:relative; font-size:13px; width: 825px; height:500px;" id="main">
+			<div style="position:relative; font-size:13px;" id="main">
 				<ul style="padding-left:10px; padding-right:10px;">
                 	<p style="font-weight: bold;">
                     	Sources of information for the map layers
@@ -129,26 +108,6 @@
 			</div>
 		</div>
 	</div>
-
-	<!--div id ="disclaimer" style="width: 850px; top: -200px"></div>
-	<div id="bottomBar1" style="width: 850px; top: -180px;">
-		<a href="http://www.geo-solutions.it" style="float:left; text-align:left; padding-left:2px;">Credits</a>
-		powered by
-		<a title="FIGIS web site" href="http://www.fao.org/fishery/figis/en">FIGIS</a>
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-		<a title="FAO Copyright" target="_blank" href="http://www.fao.org/corp/copyright/en/">
-			&copy;&nbsp;FAO,
-			<span id="copyYear">2011</span>
-			&nbsp;
-		</a>
-	</div>
-	<script type="text/javascript">
-	// <![CDATA[
-		document.getElementById('disclaimer').innerHTML = "<strong>Disclaimer:</strong> The designations employed and the presentation of material in the map(s) are for illustration only and do not imply the expression of any opinion whatsoever on the part of FAO concerning the legal or constitutional status of any country, territory or sea area, or concerning the delimitation of frontiers or boundaries.";
-		document.getElementById('subTitle').innerHTML = "Global inventory of fisheries measures adopted in ABNJ <br />to prevent significant adverse impacts of high-seas <br />bottom fisheries on vulnerable marine ecosystems (VMEs) and associated information";
-	// ]]>
-	</script-->
 	</body>
 </html>
 
