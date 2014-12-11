@@ -21,6 +21,7 @@ var FigisMap = {
 	currentSiteURI	: location.href.replace(/^([^:]+:\/\/[^\/]+).*$/,"$1"),
 //    proxy : '/http_proxy/proxy/?url=',
     proxy : '/figis/proxy/cgi-bin/proxy.cgi?url=',
+	fullWindowMap: true,
 	debugLevel	: 0 // 0|false|null: debug off, 1|true:console, 2: console + error alert
 };
 
@@ -1802,7 +1803,17 @@ FigisMap.renderer = function(options) {
  
                 OpenLayers.Event.stop(evt);
             };
-         }
+        }
+		
+		// //////////////////////////////////////////////////////////////////
+		// override the adjustZoom method of OL on order to manage correctly 
+		// all available zoom lavels (full window view mode)
+		// //////////////////////////////////////////////////////////////////
+		if(FigisMap.fullWindowMap === true){
+			OpenLayers.Map.prototype.adjustZoom = function(zoom){
+				return zoom;
+			};
+		}
 		
 		myMap = new OpenLayers.Map(
 			p.target.id,
@@ -1813,13 +1824,13 @@ FigisMap.renderer = function(options) {
 				projection: new OpenLayers.Projection( 'EPSG:' + projection ),
 				units: ( projection == 4326  ? 'degrees' : 'm' ),
                 controls:[ new OpenLayers.Control.Navigation(),
-                                  new OpenLayers.Control.Button({
-                                    displayClass: "MyButton", trigger: function(){alert("login");}
-                                    }),
-                                  figisPanZoom,
-                                  new OpenLayers.Control.ArgParser(),
-                                  new OpenLayers.Control.Attribution()
-                                ]
+					  new OpenLayers.Control.Button({
+						displayClass: "MyButton", trigger: function(){alert("login");}
+						}),
+					  figisPanZoom,
+					  new OpenLayers.Control.ArgParser(),
+					  new OpenLayers.Control.Attribution()
+                ]
 			}
 		);
 		
