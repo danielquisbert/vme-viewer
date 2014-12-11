@@ -439,10 +439,14 @@ function addVME(extent, zoom, projection, elinkDiv, urlLink, htmlLink, filter, c
 		context		: 'rfbViewer',
 		legend		: 'legend',
 		projection	: projection,
+		fullWindowMap: !embeddedIframe,
 		//center : center ? center : new OpenLayers.LonLat(14, -26)
 		center : center ? center : (embeddedIframe ? new OpenLayers.LonLat(14, -26) : new OpenLayers.LonLat(-2.46, 18.23))
 	};
-    
+	
+	// Use this if you want to change the center at the embebbed reset
+	//FigisMap.defaults.mapCenter = embeddedIframe ? new OpenLayers.LonLat(14, -26) : new OpenLayers.LonLat(-2.46, 18.23);
+
     if ( zoom != null ) pars.zoom = zoom;
 	
 	if ( extent != null ) pars.extent = extent;

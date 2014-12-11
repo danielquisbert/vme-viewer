@@ -21,7 +21,6 @@ var FigisMap = {
 	currentSiteURI	: location.href.replace(/^([^:]+:\/\/[^\/]+).*$/,"$1"),
 //    proxy : '/http_proxy/proxy/?url=',
     proxy : '/figis/proxy/cgi-bin/proxy.cgi?url=',
-	fullWindowMap: true,
 	debugLevel	: 0 // 0|false|null: debug off, 1|true:console, 2: console + error alert
 };
 
@@ -1710,7 +1709,7 @@ FigisMap.draw = function( pars, visibleLayers ) {
 		FigisMap.renderedMaps[ pars.target.id ] = false;
 	}
 	
-	var rnd = new FigisMap.renderer( { debug: pars.debug } );
+	var rnd = new FigisMap.renderer( { debug: pars.debug, fullWindowMap: pars.fullWindowMap } );
 	var theMap = rnd.render( pars, visibleLayers );
 	
 	//FigisMap.lastMap = ( theMap && theMap.id && theMap.id.indexOf('OpenLayers.')==0 ) ? theMap : false;
@@ -1809,7 +1808,7 @@ FigisMap.renderer = function(options) {
 		// override the adjustZoom method of OL on order to manage correctly 
 		// all available zoom lavels (full window view mode)
 		// //////////////////////////////////////////////////////////////////
-		if(FigisMap.fullWindowMap === true){
+		if(options.fullWindowMap === true){
 			OpenLayers.Map.prototype.adjustZoom = function(zoom){
 				return zoom;
 			};
