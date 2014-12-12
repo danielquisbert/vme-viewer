@@ -470,7 +470,7 @@ FigisMap.parser.projection = function( p ) {
 
 FigisMap.parser.watermark = function( p ) {
 	//if ( p && p.context.indexOf('FIRMS') == 0 ) return false;
-	var w = { src: FigisMap.rnd.vars.logoURL, width: 176/*60*/, height: 48/*60*/, wclass: 'olPoweredBy', title:FigisMap.label('Powered by FIGIS',p) };
+	var w = { src: FigisMap.rnd.vars.logoURL, width: 176/*60*/, height: 48/*60*/, wclass: 'olPoweredBy', title:FigisMap.label(''/*'Powered by FIGIS'*/, p) };
 	if ( p && p.context.indexOf('FIRMS') == 0 ) {
 		w.src = FigisMap.rnd.vars.logoURLFirms;
 		w.width = 176;//60;
@@ -2056,7 +2056,8 @@ FigisMap.renderer = function(options) {
 		if ( projection == 4326 ) {
             var graticule = new OpenLayers.Control.Graticule({visible: false, layerName: FigisMap.label('Coordinates Grid', p)});
             myMap.addControl(graticule);
-            graticule.gratLayer.group = "Layers of interest";
+            //graticule.gratLayer.group = "Layers of interest";
+            graticule.gratLayer.group = "Additional features";
             graticule.gratLayer.infoGroupsSources = FigisMap.infoGroupsSources.overlays;
             myMap.raiseLayer(myMap.getLayersByName("Coordinates Grid")[0], layers.length+1);
         }

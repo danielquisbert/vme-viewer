@@ -456,7 +456,12 @@ function addVME(extent, zoom, projection, elinkDiv, urlLink, htmlLink, filter, c
 	
 	myMap = FigisMap.draw( pars, layers );
 	
-	if ( myMap ) {
+	if ( myMap ) {	
+		//
+		// IMPORTANT: Graticule map's events management for current resolution value.
+		//
+		setMapEventsForGraticule(myMap);
+		
 		if ( document.getElementById(elinkDiv) ) {
 			myMap.events.register(
 				'moveend',
@@ -490,6 +495,45 @@ function addVME(extent, zoom, projection, elinkDiv, urlLink, htmlLink, filter, c
 		
 		setVMEEmbedLink('embed-url', 'embed-iframe');
 	}
+}
+
+/**
+ * "Coordinates Grid" needs a zoomIn if the resolutions 
+ * is greater than or equal to 0.3515625 in order to 
+ * allow to openlayers to correctly draw the control 
+ * (wrapdateline issue).
+ **/
+function setMapEventsForGraticule(map){
+	map.events.register(
+		'zoomend',
+		this,
+		function(){
+			var graticule = map.getLayersByName("Coordinates Grid")[0];
+			if(graticule && graticule.visibility){
+				var mapResolution = map.getResolution();
+				var resRef = 0.3515625/2;
+				if(mapResolution > resRef){
+					graticule.setVisibility(false);
+				}		
+			}
+		}
+	);
+	
+	map.events.register(
+		'changelayer',
+		this,
+		function(){
+			var graticule = map.getLayersByName("Coordinates Grid")[0];
+			if(graticule && graticule.visibility){
+				var mapResolution = map.getResolution();
+				var resRef = 0.3515625/2;
+				if(mapResolution > resRef){
+					var zoom = map.getZoomForResolution(resRef);
+					map.zoomTo(zoom);
+				}			
+			}
+		}
+	);
 }
 
 function populateRfbOptions(id) {
