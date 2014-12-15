@@ -585,6 +585,22 @@ li {
 	text-align: center;
 	z-index:1000;
 }
+
+#bottomBar1_e {
+	position: absolute;
+	margin: 0 auto;
+	width: 100%;
+	opacity: .7;
+	bottom: 10px;
+	clear: both;
+	color: black;
+	font-size:  12px;
+	font-weight: bold;
+	line-height: 1.5em;              
+	text-align: center;
+	z-index:1000;
+}
+
 #bottomBar1 a,
 #bottomBar1 a:visited {
                    color : #000;

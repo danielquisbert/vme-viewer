@@ -168,6 +168,19 @@
 					</div>
 					
 					<div id="sidebarP"></div></div>
+					
+					<div id="bottomBar1_e">
+						<!--a href="http://www.geo-solutions.it" style="float:left;text-align:left;padding-left:2px;">Credits</a>
+						powered by
+						<a title="FIGIS web site" href="http://www.fao.org/fishery/figis/en">FIGIS</a>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+
+						<a title="FAO Copyright" target="_blank" href="http://www.fao.org/contact-us/terms/en/">
+							&copy;&nbsp;FAO,
+							<span id="copyYear">2011</span>
+							&nbsp;
+						</a>
+					</div>
 			</div>	
 		</div>
 	</div>
@@ -184,7 +197,7 @@
 			&nbsp;
 		</a>
 	</div-->
-		
+	
 	<script type="text/javascript">
 		// <![CDATA[
 			Ext.onReady(function(){
@@ -204,7 +217,7 @@
                 Proj4js.defs["EPSG:3031"] = "+proj=stere +lat_0=-90 +lat_ts=-71 +lon_0=0 +k=1 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs";                    
 			});
 			
-			/*function updateCopyYear() {
+			function updateCopyYear() {
 				var uy = new Date();
 				uy = parseInt(uy.getFullYear() ? uy.getFullYear() : uy.getYear());
 				var py = parseInt( document.getElementById('copyYear').innerHTML );
@@ -212,7 +225,7 @@
 				if ( uy > py ) document.getElementById('copyYear').innerHTML = String( uy );
 				return void(0);
 			}
-			updateCopyYear();*/
+			updateCopyYear();
 			
 			document.getElementById('disclaimer_e').innerHTML = FigisMap.label('DISCLAIMER', '<p></p>');
 		// ]]>
