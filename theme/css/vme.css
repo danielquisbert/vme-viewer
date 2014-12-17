@@ -6,8 +6,10 @@ body {
     padding : 0;
     text-align : center;
     width : 100%;
+/* 
     padding-top: 26px;
     padding-bottom: 51px;
+ */
 }
 
 #page {
@@ -92,7 +94,7 @@ li {
     width : 920px;*/
     /*height : 100%;*/
     width : 100%;
-    top: 73px;
+    top: 72px;
     bottom: 0px;
 }
 
@@ -601,12 +603,12 @@ li {
 	z-index:1000;
 }
 
-#bottomBar1 a,
-#bottomBar1 a:visited {
+#bottomBar1 a, #bottomBar1 a:visited,
+#bottomBar1_e a, #bottomBar1_e a:visited {
                    color : #000;
 }
-#bottomBar1 a:hover,
-#bottomBar1 a:active {
+#bottomBar1 a:hover, #bottomBar1 a:active,
+#bottomBar1_e a:hover, #bottomBar1_e a:active {
                     opacity:1;
                    color : #f90;
 }

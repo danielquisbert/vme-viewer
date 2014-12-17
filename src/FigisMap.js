@@ -748,30 +748,30 @@ FigisMap.rnd.maxResolution = function( proj, pars ) {
 
 FigisMap.rnd.watermarkControl = function( map, pars ) {
 	if ( ! pars.watermark ) return false;
-	var poweredByControl = new OpenLayers.Control();
-    
-	OpenLayers.Util.extend(
-		poweredByControl,
-		{
-			draw: function () {
-                
-				OpenLayers.Control.prototype.draw.apply(this, arguments);
-                this.div.className+= ' ' +pars.watermark.displayClass;
-				this.div.innerHTML = '<img' +
-					( pars.watermark.src ? ' src="' + pars.watermark.src + '"' : '' ) +
-					( pars.watermark.width ? ' width="' + pars.watermark.width + '"' : '' ) +
-					( pars.watermark.height ? ' height="' + pars.watermark.height + '"' : '' ) +
-					( pars.watermark.wclass ? ' class="' + pars.watermark.wclass + '"' : '' ) +
-					( pars.watermark.id ? ' id="' + pars.watermark.id + '"' : '' ) +
-					( pars.watermark.title ? ' title="' + pars.watermark.title + '"' : '' ) +
-					( ( ! pars.watermark.noPos && pars.watermark.width && pars.watermark.height ) ? ( ' style="position:absolute;left:' + (this.map.size.w - pars.watermark.width - 5) + 'px;top:' + (this.map.size.h - pars.watermark.height - 5) + 'px;"' ) : '' ) +
-					'/>';
-				return this.div;
-			}
+ 	var poweredByControl = new OpenLayers.Control();
+     
+ 	OpenLayers.Util.extend(
+ 		poweredByControl,
+ 		{
+ 			draw: function () {
+                 
+ 				OpenLayers.Control.prototype.draw.apply(this, arguments);
+                 this.div.className+= ' ' +pars.watermark.displayClass;
+ 				this.div.innerHTML = '<img' +
+ 					( pars.watermark.src ? ' src="' + pars.watermark.src + '"' : '' ) +
+ 					( pars.watermark.width ? ' width="' + pars.watermark.width + '"' : '' ) +
+ 					( pars.watermark.height ? ' height="' + pars.watermark.height + '"' : '' ) +
+ 					( pars.watermark.wclass ? ' class="' + pars.watermark.wclass + '"' : '' ) +
+ 					( pars.watermark.id ? ' id="' + pars.watermark.id + '"' : '' ) +
+ 					( pars.watermark.title ? ' title="' + pars.watermark.title + '"' : '' ) +
+ 					' style="position:fixed;right:5px;bottom:5px;"' +
+ 					'/>';
+ 				return this.div;
+ 			}
 		}
-	);
-	map.addControl(poweredByControl);
-	return true;
+ 	);
+ 	map.addControl(poweredByControl);
+ 	return true;
 };
 
 FigisMap.rnd.mouseControl = function( map, pars ) {

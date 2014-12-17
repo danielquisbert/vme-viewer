@@ -46,9 +46,12 @@ Ext.IframeWindow = Ext.extend(Ext.Window, {
         
     },
     resizeHandler: function(w, h){
-        this.setPosition(this.tbarDiv.getX() - 5 , this.tbarDiv.getY() + this.tbarDiv.getHeight() - 31 );
-        this.setWidth(this.mainDiv.getWidth() + 10 );
-        this.setHeight(this.mainDiv.getHeight() + this.tbarDiv.getHeight() - 49 );
+//         this.setPosition(this.tbarDiv.getX() - 5 , this.tbarDiv.getY() + this.tbarDiv.getHeight() - 31 );
+//         this.setWidth(this.mainDiv.getWidth() + 10 );
+//         this.setHeight(this.mainDiv.getHeight() + this.tbarDiv.getHeight() - 49 );
+		this.setPosition(10, 80 );
+		this.setWidth(this.mainDiv.getWidth() - 20 );
+		this.setHeight(mainDiv.getHeight() + bannerIframe.getHeight() - 100);
     }
 });
 
@@ -79,9 +82,9 @@ Ext.onReady(function(){
 		}else{
 			pars = {
 				x: tbarDiv.getX() + 10,
-				y: tbarDiv.getY() + tbarDiv.getHeight() + 10,
+				y: tbarDiv.getY() + tbarDiv.getHeight() + 80,
 				width: mainDiv.getWidth() - 20,
-				height: mainDiv.getHeight() + bannerIframe.getHeight() - 30,
+				height: mainDiv.getHeight() + bannerIframe.getHeight() - 100,
 			};	
 		}	
 		

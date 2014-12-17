@@ -168,19 +168,11 @@
 					</div>
 					
 					<div id="sidebarP"></div></div>
-					
-					<div id="bottomBar1_e">
-						<!--a href="http://www.geo-solutions.it" style="float:left;text-align:left;padding-left:2px;">Credits</a>
-						powered by
-						<a title="FIGIS web site" href="http://www.fao.org/fishery/figis/en">FIGIS</a>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
-
-						<a title="FAO Copyright" target="_blank" href="http://www.fao.org/contact-us/terms/en/">
-							&copy;&nbsp;FAO,
-							<span id="copyYear">2011</span>
-							&nbsp;
-						</a>
-					</div>
+				<div id="bottomBar1_e">
+					<a title="FAO Copyright" target="_blank" href="http://www.fao.org/contact-us/terms/en/">
+						&copy;&nbsp;FAO, <span id="copyYear">2011</span>&nbsp;
+					</a>
+                               </div>
 			</div>	
 		</div>
 	</div>
@@ -230,7 +222,27 @@
 			document.getElementById('disclaimer_e').innerHTML = FigisMap.label('DISCLAIMER', '<p></p>');
 		// ]]>
 	</script>
-	
+	<!--img src="theme/img/new_watermark.png" width="176" height="48" class="olPoweredBy" style="position: fixed; bottom: 180px; right: 5px;z-index: 1000;" /-->
+	<script type="text/javascript">
+		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+		var pageTracker = _gat._getTracker("UA-1866725-1");
+		pageTracker._trackPageview();
+	</script>
+	<script type="text/javascript">
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','_gaTracker');
+		_gaTracker('create', 'UA-13090563-5', 'fao.org');
+		_gaTracker('send', 'pageview');
+		_gaTracker('create', 'UA-16796074-1', {'name':'allTracker'});
+		_gaTracker('allTracker.send', 'pageview');
+		_gaTracker('create', 'UA-16957552-1', {'name':'allSites'});
+		_gaTracker('allSites.send', 'pageview');
+	</script>
 </body>
 </html>
 
