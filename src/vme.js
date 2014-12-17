@@ -454,6 +454,9 @@ function addVME(extent, zoom, projection, elinkDiv, urlLink, htmlLink, filter, c
 	
 	//if ( document.getElementById(elinkDiv) ) document.getElementById(elinkDiv).style.display = "none";
 	
+	if(layers){
+		layers = decodeURIComponent(layers);
+	}	
 	myMap = FigisMap.draw( pars, layers );
 	
 	if ( myMap ) {	
@@ -738,7 +741,7 @@ function setVMEEmbedLink(embedUrl, embedIframe) {
 		+ "&zoom=" + zoom
 		+ "&center=" + center
 		+ "&year=" + year
-		+ "&layers=" + visibleLayers.join(";")
+		+ "&layers=" + encodeURIComponent(visibleLayers.join(";"))
         + "&rfb=" + rfb;
 		
 	//baseURL = baseURL.replace(/ /g, '');
