@@ -212,9 +212,17 @@
 			function updateCopyYear() {
 				var uy = new Date();
 				uy = parseInt(uy.getFullYear() ? uy.getFullYear() : uy.getYear());
+				
+				// Update the year value for the FAO copyright
 				var py = parseInt( document.getElementById('copyYear').innerHTML );
 				if ( isNaN(uy) || isNaN(py) ) return void(0);
 				if ( uy > py ) document.getElementById('copyYear').innerHTML = String( uy );
+				
+				// Update the year value for the time slider
+				var py = parseInt( document.getElementById('yearCurrent').innerHTML );
+				if ( isNaN(uy) || isNaN(py) ) return void(0);
+				if ( uy > py ) document.getElementById('yearCurrent').innerHTML = String( uy );
+			
 				return void(0);
 			}
 			updateCopyYear();
