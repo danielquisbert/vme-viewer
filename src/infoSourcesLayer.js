@@ -74,9 +74,9 @@ Ext.onReady(function(){
 		if(embeddedIframe){
 			pars = {
 				x: tbarDiv.getX(),
-				y: tbarDiv.getY() + tbarDiv.getHeight() - 10,
+				y: tbarDiv.getY() + tbarDiv.getHeight(),
 				width: mainDiv.getWidth(),
-				height: mainDiv.getHeight() + tbarDiv.getHeight() + 170,
+				height: mainDiv.getHeight() + tbarDiv.getHeight() + 100,
 			};
 		}else{
 			pars = {

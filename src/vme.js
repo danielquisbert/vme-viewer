@@ -415,6 +415,16 @@ function restoreToggleButtons(){
 	}    
 }
 
+function setEmbeddedElementClass(elementsDiv, mapSize){
+	if(elementsDiv && elementsDiv.length > 0){
+		for(var i=0; i<elementsDiv.length; i++){
+			var target = elementsDiv[i];
+			var div = document.getElementById(target);
+			div.className = target + "_" + mapSize;
+		}
+	}
+}	
+
 /**
 * function addVME
 *       extent -> The extent to zoom after the layer is rendered (optional).
@@ -423,7 +433,7 @@ function restoreToggleButtons(){
 *       urlLink -> The id of the url input field of the embed-link (optional if not using the embed link div).
 *       htmlLink -> The id of the html input field of the embed-link (optional if not using the embed link div).
 **/
-function addVME(extent, zoom, projection, elinkDiv, urlLink, htmlLink, filter, center, layers, year, rfb) {
+function addVME(extent, zoom, projection, elinkDiv, urlLink, htmlLink, filter, center, layers, year, rfb, mapSize) {
 	//sets the zoom dropdown to default values when the area selection and the selection of projection change
 	//populateZoomAreaOptions('FilterRFB');
 	
@@ -443,6 +453,12 @@ function addVME(extent, zoom, projection, elinkDiv, urlLink, htmlLink, filter, c
 		//center : center ? center : new OpenLayers.LonLat(14, -26)
 		center : center ? center : (embeddedIframe ? new OpenLayers.LonLat(14, -26) : new OpenLayers.LonLat(-2.46, 18.23))
 	};
+	
+	if(embeddedIframe){
+		pars.mapSize = mapSize ? mapSize : "L";
+		var elementsDiv = [pars.target, 'main_e', 'page_e', 'wrapper_e', 'disclaimer_e'];
+		setEmbeddedElementClass(elementsDiv, pars.mapSize);		
+	}
 	
 	// Use this if you want to change the center at the embebbed reset
 	//FigisMap.defaults.mapCenter = embeddedIframe ? new OpenLayers.LonLat(14, -26) : new OpenLayers.LonLat(-2.46, 18.23);
@@ -605,7 +621,7 @@ function populateZoomAreaOptions(id) {
 function setVMEPage(elinkDiv, urlLink, htmlLink) {
 	// populateRfbOptions('SelectRFB'); TDP: mandatory ?
 	
-	var layers, extent, zoom, prj, center, year, rfb;
+	var layers, extent, zoom, prj, center, year, rfb, mapSize;
 	
 	if ( location.search.indexOf("embed=true") != -1 ){
 		
@@ -623,6 +639,7 @@ function setVMEPage(elinkDiv, urlLink, htmlLink) {
 				case "center"	: center = param[1]; break;
 				case "year"	: year = param[1]; break;
                 case "rfb"	: rfb = param[1]; break;
+				case "mapSize"	: mapSize = param[1]; break;
 			}
 		}
 		
@@ -683,7 +700,7 @@ function setVMEPage(elinkDiv, urlLink, htmlLink) {
 	/*
 	* Load the RFB using the request parameters.
 	*/
-	addVME(extent, zoom, prj, elinkDiv, urlLink, htmlLink, null, center, layers, year, rfb);
+	addVME(extent, zoom, prj, elinkDiv, urlLink, htmlLink, null, center, layers, year, rfb, mapSize);
 }
 
 /*
@@ -758,9 +775,24 @@ function setVMEEmbedLink(embedUrl, embedIframe) {
 	linkId.setValue(baseURL);
     
     var newHref = window.location.origin + window.location.pathname;
-	//var htmlFrame = '<iframe src="' + baseURL.replace(/VME-Viewer\//,'VME-Viewer/index_e.html') + '" width="800" height="600" frameborder="0" marginheight="0">';
-    var htmlFrame = '<iframe src="' + baseURL.replace(newHref,newHref + 'index_e.html') + '" width="800" height="600" frameborder="0" marginheight="0">';
+
+	//
+	// Set the Regular Size Embedded 
+	//	
+	var regularSizeBaseURL = baseURL + "&mapSize=L";
+    var htmlFrame = '<iframe src="' + regularSizeBaseURL.replace(newHref, newHref + 'index_e.html') + '" width="800" height="600" frameborder="0" marginheight="0">';
 		htmlFrame += "</iframe>";
+		
+	htmlId.setValue(htmlFrame);
+	
+	//
+	// Set the Small Size Embedded 
+	//
+	var htmlId = Ext.getCmp(embedIframe + "-small");
+	
+    var smallSizeBaseURL = baseURL + "&mapSize=M";
+    htmlFrame = '<iframe src="' + smallSizeBaseURL.replace(newHref,newHref + 'index_e.html') + '" width="800" height="600" frameborder="0" marginheight="0">';
+	htmlFrame += "</iframe>";
 		
 	htmlId.setValue(htmlFrame);
 	

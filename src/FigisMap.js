@@ -477,6 +477,7 @@ FigisMap.parser.watermark = function( p ) {
 		w.height = 48;//29;
 	}else{
         w.displayClass = "olFAOLogo";
+		w.displayClass = p.fullWindowMap != true ? w.displayClass + " olFAOLogo_e" : w.displayClass;
     }
 	if ( p && p.watermark != null ) {
 		if ( typeof p.watermark == 'object' ) {
@@ -756,7 +757,7 @@ FigisMap.rnd.watermarkControl = function( map, pars ) {
  			draw: function () {
                  
  				OpenLayers.Control.prototype.draw.apply(this, arguments);
-                 this.div.className+= ' ' +pars.watermark.displayClass;
+                this.div.className+= ' ' + pars.watermark.displayClass;
  				this.div.innerHTML = '<img' +
  					( pars.watermark.src ? ' src="' + pars.watermark.src + '"' : '' ) +
  					( pars.watermark.width ? ' width="' + pars.watermark.width + '"' : '' ) +
@@ -764,8 +765,19 @@ FigisMap.rnd.watermarkControl = function( map, pars ) {
  					( pars.watermark.wclass ? ' class="' + pars.watermark.wclass + '"' : '' ) +
  					( pars.watermark.id ? ' id="' + pars.watermark.id + '"' : '' ) +
  					( pars.watermark.title ? ' title="' + pars.watermark.title + '"' : '' ) +
- 					' style="position:fixed;right:5px;bottom:5px;"' +
+ 					//' style="position:fixed;right:5px;bottom:5px;"' +
+					( (pars.watermark.width && pars.watermark.height) ? ( ' style="position:absolute;left:' + (this.map.size.w - pars.watermark.width - 5) + 'px;top:' + (this.map.size.h - pars.watermark.height - 5) + 'px;"' ) : '' ) +
  					'/>';
+					
+					this.map.events.register('updatesize', this, function(){						
+						var img = this.div.firstChild;						
+						if(img){						
+							img.style.position = "absolute";
+							img.style.left = (this.map.size.w - pars.watermark.width - 5) + "px";
+							img.style.top = (this.map.size.h - pars.watermark.height - 5) + "px";
+						}
+					});
+					
  				return this.div;
  			}
 		}

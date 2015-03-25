@@ -12,6 +12,42 @@ body {
  */
 }
 
+a, a:visited {
+                   color : #2d8b8c;
+         text-decoration : none;
+}
+a:hover, a:active {
+                   color : #f90;
+                  cursor : pointer;
+}
+
+ul,li {
+         list-style-type : none;
+}
+
+#wrapper{
+    /*margin : 20px;*/
+    text-align : left;
+    /*width : 920px;*/
+	width : 100%;
+	height : 100%;
+}
+
+.wrapper_e_M{
+    margin: 0px; 
+    text-align : left;
+    width : 720px;
+}
+
+.wrapper_e_L{
+    margin: 0px; 
+    text-align : left;
+    width : 962px;
+}
+
+/* ------------------ */
+/*      PAGE CSS      */
+/* ------------------ */
 #page {
     z-index: 1;
     /*width: 960px;
@@ -30,48 +66,37 @@ body {
     /*margin-right: auto;*/
 }
 
-#page_e {
+.page_e_M {
     z-index: 1;
-    width: 920px; /*960px;*/
-    height: 680px;
+    width: 720px;
+    height: 540px;
+    background-image: none;
+    background-color: #FFFFFF;
+    /*padding-bottom: 0px;
+    margin-left: auto;
+    margin-top:20px;
+    margin-right: auto;*/
+}
+
+.page_e_L {
+    z-index: 1;
+    width: 962px; /*960px;*/
+    height: 710px;
     background-image: none;
     /*border-width: 1px;
     border-style: solid;
     border-color: #000000;*/
     background-color: #FFFFFF;
-    padding-bottom: 0px;
+    /*padding-bottom: 0px;
     margin-left: auto;
-    margin-top:20px;
+    margin-top:20px;*/
     /*margin-bottom:20px;*/
-    margin-right: auto;
+    /*margin-right: auto;*/
 }
 
-#wrapper_e{
-    margin: 0px; 
-    text-align : left;
-    width : 920px;
-}
-
-#wrapper{
-    /*margin : 20px;*/
-    text-align : left;
-    /*width : 920px;*/
-	width : 100%;
-	height : 100%;
-}
-
-a, a:visited {
-                   color : #2d8b8c;
-         text-decoration : none;
-}
-a:hover, a:active {
-                   color : #f90;
-                  cursor : pointer;
-}
-ul,
-li {
-         list-style-type : none;
-}
+/* ------------------ */
+/*      MAP CSS       */
+/* ------------------ */
 #map {
    clear : both;
    left : 20px;                    
@@ -81,13 +106,23 @@ li {
    height : 100%;
 }
 
-#map_e {
-                   clear : both;
-                   left : 20px;                    
-                   width : 920px;
-				   height : 610px;
+.map_e_M {
+   clear : both;
+   left : 20px;                    
+   width : 720px;
+   height : 500px;
 }
 
+.map_e_L {
+   clear : both;
+   left : 20px;                    
+   width : 962px;
+   height : 670px;
+}
+
+/* ------------------ */
+/*      MAIN CSS      */
+/* ------------------ */
 #main {
     float : left;
     /*height : 610px;
@@ -98,12 +133,20 @@ li {
     bottom: 0px;
 }
 
-#main_e {
+.main_e_M {
     float : left;
-    /*height : 610px;
-    width : 920px;*/
-    height : 100%;
-    width : 100%;
+	width : 720px;
+    height : 500px;
+    /*height : 100%;
+    width : 100%;*/
+}
+
+.main_e_L {
+    float : left;
+    width : 962px;
+	height : 670px;
+    /*height : 100%;
+    width : 100%;*/
 }
 
 /*
@@ -633,7 +676,7 @@ li {
 }
 */
 #disclaimer{
-/*color: #FFFFFF;*/
+	/*color: #FFFFFF;*/
     font-size: 10px;
     font-family: asap, sans-serif;
     font-weight: 400;
@@ -647,17 +690,31 @@ li {
     text-align:left;
 }
 
-#disclaimer_e{
-/*color: #FFFFFF;*/
+.disclaimer_e_M{
     font-size: 10px;
     font-family: asap, sans-serif;
     font-weight: 400;
-    width : 920px;
-    margin-left: auto;
+    width : 720px;
+    /*margin-left: auto;*/
     margin-top:2px;
     margin-bottom:2px;
-    margin-right: auto;
-    top:-60px;
+    /*margin-right: auto;*/
+    top:-30px;
+    position:relative;
+    text-align:left;
+}
+
+.disclaimer_e_L{
+	/*color: #FFFFFF;*/
+    font-size: 10px;
+    font-family: asap, sans-serif;
+    font-weight: 400;
+    width : 962px;
+    /*margin-left: auto;*/
+    margin-top:2px;
+    margin-bottom:2px;
+    /*margin-right: auto;*/
+    top:-30px;
     position:relative;
     text-align:left;
 }
@@ -705,9 +762,14 @@ li {
               font-style : normal;
                 position : absolute;
 }
+
 .olFAOLogo{
     height:48px; /*60px;*/
     width:176px; /*56px;*/
+}
+
+.olFAOLogo_e{
+	opacity: .6;
 }
 
 

@@ -787,10 +787,23 @@ var sidePanel = new Ext.Panel({
 					fieldLabel: "Paste the link in mail or chat"					
 				},
 				{
+					xtype: "label",
+					text: "Paste the HTML in a web site",
+					style:{
+						font: "bold 12px tahoma, arial, helvetica, sans-serif"
+					}
+				},
+				{
 					xtype: "textfield",
 					id: "embed-iframe",
 					selectOnFocus: true,
-					fieldLabel: "Paste the HTML in a web site"					
+					fieldLabel: "Regular size"					
+				},
+				{
+					xtype: "textfield",
+					id: "embed-iframe-small",
+					selectOnFocus: true,
+					fieldLabel: "Small size"					
 				}
 			]
 		},
