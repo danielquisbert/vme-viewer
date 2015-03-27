@@ -767,7 +767,8 @@ FigisMap.rnd.watermarkControl = function( map, pars ) {
  					( pars.watermark.title ? ' title="' + pars.watermark.title + '"' : '' ) +
  					//' style="position:fixed;right:5px;bottom:5px;"' +
 					( (pars.watermark.width && pars.watermark.height) ? ( ' style="position:absolute;left:' + (this.map.size.w - pars.watermark.width - 5) + 'px;top:' + (this.map.size.h - pars.watermark.height - 5) + 'px;"' ) : '' ) +
- 					'/>';
+ 					//' onClick="javascript:window.location.href = \'' + FigisMap.httpBaseRoot + '\'"/>';
+					' onClick="javascript:window.open(\'' + FigisMap.httpBaseRoot + '\', \'_blank\')"/>';
 					
 					this.map.events.register('updatesize', this, function(){						
 						var img = this.div.firstChild;						
@@ -1494,11 +1495,15 @@ FigisMap.ol.refreshAuthorized = function(){
 
 };
 
+FigisMap.getFullYear = function(){
+	return new Date().getFullYear() - 1;
+}
+
 /**
  * Stores the current selected year 
  * default: the system Date() year
  */
-FigisMap.ol.selectedYear = new Date().getFullYear();
+FigisMap.ol.selectedYear = FigisMap.getFullYear();
 
 
 /**
@@ -1506,7 +1511,7 @@ FigisMap.ol.selectedYear = new Date().getFullYear();
  * default: from 2006 to today
  */
 FigisMap.ol.minYear = 2006;
-FigisMap.ol.maxYear = new Date().getFullYear();
+FigisMap.ol.maxYear = FigisMap.getFullYear();
 
 /*
  * Move year selector forward by 1

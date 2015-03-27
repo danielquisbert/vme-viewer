@@ -112,11 +112,11 @@ function reset(year){
 	
     /*
     var years = Ext.getCmp('years-slider');	
-    years.setValue(0, new Date().getFullYear());	
-	Ext.getCmp('years-min-field').setValue(new Date().getFullYear());
+    years.setValue(0, FigisMap.getFullYear());	
+	Ext.getCmp('years-min-field').setValue(FigisMap.getFullYear());
 	*/
 	
-	var y = year ? year : new Date().getFullYear();
+	var y = year ? year : FigisMap.getFullYear();
 	FigisMap.ol.setSelectedYear(y);
 	
 	updateVme();	
@@ -656,7 +656,7 @@ function setVMEPage(elinkDiv, urlLink, htmlLink) {
 			FigisMap.ol.setSelectedYear(year);
 		}else{
 			year = null;
-			FigisMap.ol.setSelectedYear(new Date().getFullYear());
+			FigisMap.ol.setSelectedYear(FigisMap.getFullYear());
 		}
 		
 		if ( extent == "" ) extent = null;
@@ -679,7 +679,7 @@ function setVMEPage(elinkDiv, urlLink, htmlLink) {
 		setProjection( prj);
 		
 	}else{	
-		FigisMap.ol.setSelectedYear(new Date().getFullYear());
+		FigisMap.ol.setSelectedYear(FigisMap.getFullYear());
 		
 		// //////////////////////////////////////////////////
 		// WGS84 Radio Button checked as default.
@@ -780,7 +780,7 @@ function setVMEEmbedLink(embedUrl, embedIframe) {
 	// Set the Regular Size Embedded 
 	//	
 	var regularSizeBaseURL = baseURL + "&mapSize=L";
-    var htmlFrame = '<iframe src="' + regularSizeBaseURL.replace(newHref, newHref + 'index_e.html') + '" width="800" height="600" frameborder="0" marginheight="0">';
+    var htmlFrame = '<iframe src="' + regularSizeBaseURL.replace(newHref, newHref + 'index_e.html') + '" width="962" height="670" frameborder="0" marginheight="0">';
 		htmlFrame += "</iframe>";
 		
 	htmlId.setValue(htmlFrame);
@@ -791,7 +791,7 @@ function setVMEEmbedLink(embedUrl, embedIframe) {
 	var htmlId = Ext.getCmp(embedIframe + "-small");
 	
     var smallSizeBaseURL = baseURL + "&mapSize=M";
-    htmlFrame = '<iframe src="' + smallSizeBaseURL.replace(newHref,newHref + 'index_e.html') + '" width="800" height="600" frameborder="0" marginheight="0">';
+    htmlFrame = '<iframe src="' + smallSizeBaseURL.replace(newHref,newHref + 'index_e.html') + '" width="720" height="500" frameborder="0" marginheight="0">';
 	htmlFrame += "</iframe>";
 		
 	htmlId.setValue(htmlFrame);

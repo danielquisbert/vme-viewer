@@ -766,6 +766,7 @@ ul,li {
 .olFAOLogo{
     height:48px; /*60px;*/
     width:176px; /*56px;*/
+	cursor: pointer;
 }
 
 .olFAOLogo_e{
