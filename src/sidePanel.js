@@ -910,7 +910,19 @@ Vme.data.stores.rfmoStore.on('load',function(store, records, options){
                 afterrender: function(radio){               
                     
                     //var rfbStore = 'rfbStore' + radio.acronym;      
-                    
+                    Ext.Ajax.request({
+                        url: FigisMap.geoServerBase + "/figis/ws/vme/webservice/owner/"+radio.acronym+"/scope/Regulatory/vmes",
+                        headers: {"Accept": "application/json", 'Content-Type': 'application/json;charset=utf-8'},
+                        success: function(response) {
+                                var json = Ext.decode(response.responseText);
+                                Vme.factsheetUrl[radio.acronym] = json.resultList[0].factsheetUrl;
+                                var id = 'infoRFBimage_' + radio.id;
+                                Ext.get(id).dom.lastChild.parentNode.outerHTML = '<a id="'+id+'" style="color:#000000" href="javascript:void(0);" //onClick="FigisMap.infoSourceLayers(\''+json.resultList[0].factsheetUrl+'\',true);"><img style="margin-bottom: 1px; vertical-align: bottom" title = "Clik To View Regional Measures" src="theme/img/icons/information.png"></a><span>'+radio.acronym+'</span>';
+                        }
+                    });
+
+                    //Kiran: Commented this code out as it seems to create looped stores which is not allowed in ExtJs 
+                    /*
                     var rfbStoreAcronym =  new Ext.data.JsonStore({
                         url: FigisMap.geoServerBase + "/figis/ws/vme/webservice/owner/"+radio.acronym+"/scope/Regulatory/vmes", //Vme.data.models.factsheetCCAMLR,
                         autoLoad: false,
@@ -927,6 +939,7 @@ Vme.data.stores.rfmoStore.on('load',function(store, records, options){
                             Ext.get(id).dom.lastChild.parentNode.outerHTML = '<a id="'+id+'" style="color:#000000" href="javascript:void(0);" onClick="FigisMap.infoSourceLayers(\''+records.data.factsheetUrl+'\',true);"><img style="margin-bottom: 1px; vertical-align: bottom" title = "Clik To View Regional Measures" src="theme/img/icons/information.png"></a><span>'+radio.acronym+'</span>';
                         })
                     });
+                    */
                     
                     //WORKAROUND TO MANAGE GFCM AND WECAFC WEB-SERVICE ERROR
                     //if(Vme.data.stores[rfbStore].data.length != 0){

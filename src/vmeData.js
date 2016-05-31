@@ -287,7 +287,7 @@ Vme.data={
 							//'<br/>{[this.addProtectedLinks(values)]}' +
                         '</div>'+
 						'<div style="text-align:left;">' +
-							'<u><a href="javascript:void(0);" onClick="FigisMap.infoSourceLayers(\'{[this.getFactsheet(values)]}\',true);" >Access the Regional Factsheet</a></u>' +
+							'<u><a href="javascript:void(0);" onClick="FigisMap.factsheetRel(\'{[this.getFactsheetUrl(values)]}\');" >Access the VME Factsheet</a><br/><a href="javascript:void(0);" onClick="FigisMap.infoSourceLayers(\'{[this.getFactsheet(values)]}\',true);" >Access the Regional Factsheet</a></u>' +
                         '</div>'+                        
                     '</div>'+
 				'</tpl>',

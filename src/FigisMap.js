@@ -768,7 +768,8 @@ FigisMap.rnd.watermarkControl = function( map, pars ) {
  					//' style="position:fixed;right:5px;bottom:5px;"' +
 					( (pars.watermark.width && pars.watermark.height) ? ( ' style="position:absolute;left:' + (this.map.size.w - pars.watermark.width - 5) + 'px;top:' + (this.map.size.h - pars.watermark.height - 5) + 'px;"' ) : '' ) +
  					//' onClick="javascript:window.location.href = \'' + FigisMap.httpBaseRoot + '\'"/>';
-					' onClick="javascript:window.open(\'' + FigisMap.httpBaseRoot + '\', \'_blank\')"/>';
+					//' onClick="javascript:window.open(\'' + FigisMap.httpBaseRoot + '\', \'_blank\')"/>';
+					' onClick="javascript:window.open(\'' + FigisMap.httpBaseRoot + '\')"/>';
 					
 					this.map.events.register('updatesize', this, function(){						
 						var img = this.div.firstChild;						
@@ -1496,7 +1497,8 @@ FigisMap.ol.refreshAuthorized = function(){
 };
 
 FigisMap.getFullYear = function(){
-	return new Date().getFullYear() - 1;
+	//return new Date().getFullYear() - 1;
+	return new Date().getFullYear();
 }
 
 /**
@@ -1745,7 +1747,8 @@ FigisMap.renderer = function(options) {
 	var myBounds, boundsOrigin, boundsBox;
 	var target, projection, extent, center, zoom;
 	var olLayers = new Array();
-	var olImageFormat = OpenLayers.Util.alphaHack() ? "image/gif" : "image/png8";
+	//Kiran: Changed to impage/png8 to image/png as requested by emmuaul
+	var olImageFormat = OpenLayers.Util.alphaHack() ? "image/gif" : "image/png";
     var info = {controls: []};
 	
 	// pink tile avoidance
